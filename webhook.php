@@ -4,9 +4,6 @@ header('Content-Type: application/json');
 $rawData = file_get_contents('php://input');
 $data = json_decode($rawData, true);
 
-// Hifadhi logi ya data inayoingia kwa ajili ya ukaguzi
-file_put_contents('palmpesa_webhook.log', date('[Y-m-d H:i:s] ') . $rawData . PHP_EOL, FILE_APPEND);
-
 if (!$data) {
     echo json_encode(['status' => 'INVALID_JSON']);
     exit();
@@ -20,8 +17,8 @@ $statusUpper = strtoupper(trim((string)$status));
 $isSuccess   = in_array($statusUpper, ['SUCCESS', 'COMPLETED', 'TRADE_SUCCESS', '000', '0', 'APPROVED', 'OK']);
 
 if ($isSuccess && !empty($orderId)) {
-    // Andika ushuhuda wa ushindi kwenye Log File ili pay.php ijue malipo yamekamilika
-    file_put_contents('palmpesa_webhook.log', date('[Y-m-d H:i:s] ') . "SUCCESS processed for: $orderId" . PHP_EOL, FILE_APPEND);
+    // Malipo yamefanikiwa! 
+    // Hapa ndipo MikroTik RouterOS API au database inatakiwa ipokee taarifa za kufungua bando.
 }
 
 // Daima mrudishie PalmPesa majibu chanya
