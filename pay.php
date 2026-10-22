@@ -15,7 +15,7 @@ define('PALMPESA_MERCHANT_ID', '487');
 define('PALMPESA_API_KEY', 'uzczuHsDoFwPyQlJAyS3nBSzp2JSIxkrrXUR8opop9591mY6Qsfiklkh2M0q');
 
 // ⚠️ BADILISHA HAPA: Weka Link halisi ya server yako ambapo utaweka webhook.php
-define('WEBHOOK_URL', 'http://mrogbando.gt.tc/webhook.php');
+define('WEBHOOK_URL', 'https://mrogbando.vercel.app/api/webhook.php');
 
 // KAMA NI MAOMBI YA KUKAGUA STATUS (Polling Check)
 if (isset($_GET['check_status'])) {
